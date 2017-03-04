@@ -1,2 +1,3 @@
 # conf
-In this repository present my personal config file.
+
+cat term > ~/.config/xfce4/terminal/terminalrc
