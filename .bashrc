@@ -159,3 +159,5 @@ export HISTIGNORE="&:ls:[bf]g:exit"
 shopt -s histappend
 
 export HISTTIMEFORMAT="%d/%m/%y %T "
+
+export EDITOR="vim"
