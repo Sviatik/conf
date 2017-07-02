@@ -1,32 +1,27 @@
 #!/bin/bash
 
-yum_package="vim tree wget git unzip net-tools bash-completion telnet nmap docker-ce ansible yum-utils"
-apt_package="vim tree wget git unzip net-tools bash-completion telnet nmap"
+YUM_PACKAGE="vim tree wget git unzip net-tools bash-completion telnet nmap docker-ce ansible yum-utils"
+APT_PACKAGE="vim tree wget git unzip net-tools bash-completion telnet nmap"
 
 
 
 
 
 
-function test_install {
+function check_dist {
     if [[ -f /etc/redhat-release ]]; then
-        # update system
-        yum update
-        # Add repo
-        yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-        #Update cache
-        yum makecache fast
-        yum -y install $yum_package
+        rhel
+
     elif [[ -f /etc/debian_version ]]; then
-        apt update && apt upgrade
-        apt install -y $apt_package  
+        debian
+
     else
-        echo 'unknow distro'
+        echo 'unknow dist'
         exit 1
     fi
 }
 
-#test_install
+#check_dist
 
 
 function check_su {
@@ -34,8 +29,37 @@ function check_su {
         echo 'Please run with sudo'
         exit 1
     else
-        test_install
+        check_dist
     fi
+}
+
+function debian {
+    #echo "function debian"
+
+    apt update && apt upgrade
+    apt install -y $APT_PACKAGE  
+    echo $USER
+    #check desktop environment
+    desktop=$(echo "$XDG_DATA_DIRS" | sed 's/.*\(xfce\|kde\|gnome\).*/\1/')
+    echo $desktop
+
+    #conf terminal
+    mkdir -p ~/.config/xfce4/terminal
+    cat term > ~/.config/xfce4/terminal/terminalrc
+
+
+}
+
+function rhl {
+    # update system
+    yum update
+    # Add repo
+    yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+    #Update cache
+    yum makecache fast
+    yum -y install $YUM_PACKAGE
+
+
 }
 
 check_su
