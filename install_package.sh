@@ -1,11 +1,7 @@
 #!/bin/bash
 
 YUM_PACKAGE="vim tree wget git unzip net-tools bash-completion telnet nmap docker-ce ansible yum-utils"
-APT_PACKAGE="vim tree wget git unzip net-tools bash-completion telnet nmap"
-
-
-
-
+APT_PACKAGE="vim tree wget git unzip net-tools bash-completion telnet nmap tlp tlp-rdw google-chrome-stable"
 
 
 function check_dist {
@@ -34,18 +30,20 @@ function check_su {
 }
 
 function debian {
+    echo -c "INFO: Add repo"
+    if [[ -f /etc/apt/sources.list.d/google.list ]]
+        cp ./google.list /etc/apt/sources.list.d/
+    wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+
+    add-apt-repository ppa:linrunner/tlp
+    
     #echo "function debian"
-
-    apt update && apt upgrade
-    apt install -y $APT_PACKAGE  
-    echo $USER
-    #check desktop environment
-    desktop=$(echo "$XDG_DATA_DIRS" | sed 's/.*\(xfce\|kde\|gnome\).*/\1/')
-    echo $desktop
-
-    #conf terminal
-    mkdir -p ~/.config/xfce4/terminal
-    cat term > ~/.config/xfce4/terminal/terminalrc
+    echo -c "INFO: install package"
+#    apt update && apt upgrade
+#    apt install -y $APT_PACKAGE  
+        
+#    mkdir -p ~/.config/xfce4/terminal
+    #cat term > ~/.config/xfce4/terminal/terminalrc
 
 
 }
