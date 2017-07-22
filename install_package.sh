@@ -31,22 +31,22 @@ function check_su {
 
 function debian {
     echo -c "INFO: Add repo"
-    if [[ -f /etc/apt/sources.list.d/google.list ]]
+    if [[ -f /etc/apt/sources.list.d/google.list ]]; then
         cp ./google.list /etc/apt/sources.list.d/
-    wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-
-    add-apt-repository ppa:linrunner/tlp
     
-    #echo "function debian"
-    echo -c "INFO: install package"
-#    apt update && apt upgrade
-#    apt install -y $APT_PACKAGE  
-        
-#    mkdir -p ~/.config/xfce4/terminal
-    #cat term > ~/.config/xfce4/terminal/terminalrc
+    wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+    add-apt-repository ppa:linrunner/tlp
+    fi
 
+    echo "function debian"
+    echo -c "INFO: install package"
+    apt update && apt upgrade
+    apt install -y $APT_PACKAGE  
+    mkdir -p ~/.config/xfce4/terminal
+    cat term > ~/.config/xfce4/terminal/terminalrc
 
 }
+
 
 function rhl {
     # update system
