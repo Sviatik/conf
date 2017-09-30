@@ -2,7 +2,7 @@
 
 #YUM_PACKAGE="vim tree wget git unzip net-tools bash-completion telnet nmap docker-ce ansible yum-utils"
 APT_PACKAGE="vim tree wget git unzip net-tools bash-completion telnet nmap tlp tlp-rdw google-chrome-stable openconnect \
-    sublime-text remmina remmina-plugin-rdp keepassx docker-engine"
+    sublime-text remmina remmina-plugin-rdp keepassx docker-engine skype"
 
 
 
@@ -34,7 +34,7 @@ function check_dist {
 
 
 function install_package {
-    echo -c "INFO: Add repo"
+    echo "INFO: Add repo"
     # Google repo
     wget -qO - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
     sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
@@ -44,11 +44,15 @@ function install_package {
     # Docker repo
     sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
     sudo apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial main'
+    # Skype
+    echo "deb [arch=amd64] https://repo.skype.com/deb stable main" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+
+
 
 
 
     echo "function debian"
-    echo -c "INFO: install package"
+    echo "INFO: install package"
     apt update && apt upgrade -y
     apt install -y $APT_PACKAGE  
     mkdir -p ~/.config/xfce4/terminal
@@ -81,3 +85,10 @@ sudo tar zxvf OSX-Arc-White.tar.gz
 
 
 ln -s /tmp/ /home/$USER/tmp
+echo "INFO: For install PAckage control in sublime-text3 pls press Ctr+~"
+echo "import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+
+
+
+
+
