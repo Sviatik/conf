@@ -20,7 +20,8 @@ else
     start_agent;
 fi
 
-ssh-add ~/.ssh/*.pem
+ssh-add ~/.ssh/*.pem &> /dev/null || echo "ERROR: Add keys to ssh-agent"
+
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
@@ -120,7 +121,7 @@ alias ll='ls -alF --color=auto'
 alias la='ls -A'
 alias l='ls -CF'
 alias grep='grep --color=auto'
-
+alias du='du -h'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
