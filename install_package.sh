@@ -64,7 +64,7 @@ function install_package {
 
 check_su
 
-docker run -it microsoft/azure-cli
+docker pull microsoft/azure-cli
 
 #Repo for upgreade baterry
 #add-apt-repository ppa:linrunner/tlp
