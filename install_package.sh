@@ -2,7 +2,7 @@
 
 #YUM_PACKAGE="vim tree wget git unzip net-tools bash-completion telnet nmap docker-ce ansible yum-utils"
 APT_PACKAGE="vim tree wget git unzip net-tools bash-completion telnet nmap tlp tlp-rdw google-chrome-stable openconnect \
-    sublime-text remmina remmina-plugin-rdp keepassx docker-engine"
+    sublime-text remmina remmina-plugin-rdp keepassx docker-engine ansible"
 #skype
 
 
@@ -44,8 +44,8 @@ function install_package {
     # Docker repo
     sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
     sudo apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial main'
-
-
+    # Ansible repo
+    apt-add-repository -y ppa:ansible/ansible
 
 
 
@@ -53,13 +53,12 @@ function install_package {
     echo "INFO: install package"
     apt update && apt upgrade -y
     apt install -y $APT_PACKAGE  
-    mkdir -p ~/.config/xfce4/terminal
-    cp terminalrc ~/.config/xfce4/terminal/terminalrc
 
 }
 
-
-
+#conf terminal
+mkdir -p ~/.config/xfce4/terminal
+cp wget https://github.com/sviatik/conf/raw/master/terminalrc -P /home/sviat/.config/xfce4/terminal/terminalrc
 
 
 check_su
