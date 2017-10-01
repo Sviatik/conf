@@ -2,8 +2,8 @@
 
 #YUM_PACKAGE="vim tree wget git unzip net-tools bash-completion telnet nmap docker-ce ansible yum-utils"
 APT_PACKAGE="vim tree wget git unzip net-tools bash-completion telnet nmap tlp tlp-rdw google-chrome-stable openconnect \
-    sublime-text remmina remmina-plugin-rdp keepassx docker-engine skype"
-
+    sublime-text remmina remmina-plugin-rdp keepassx docker-engine"
+#skype
 
 
 function check_su {
