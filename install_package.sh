@@ -62,7 +62,7 @@ check_su
 
 #conf terminal
 mkdir -p /home/sviat/.config/xfce4/terminal
-wget https://github.com/sviatik/conf/raw/master/terminalrc -P /home/sviat/.config/xfce4/terminal/terminalrc
+wget https://github.com/sviatik/conf/raw/master/terminalrc -P /home/sviat/.config/xfce4/terminal
 
 
 docker pull microsoft/azure-cli
