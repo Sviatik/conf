@@ -56,12 +56,14 @@ function install_package {
 
 }
 
-#conf terminal
-mkdir -p ~/.config/xfce4/terminal
-cp wget https://github.com/sviatik/conf/raw/master/terminalrc -P /home/sviat/.config/xfce4/terminal/terminalrc
 
 
 check_su
+
+#conf terminal
+mkdir -p /home/sviat/.config/xfce4/terminal
+wget https://github.com/sviatik/conf/raw/master/terminalrc -P /home/sviat/.config/xfce4/terminal/terminalrc
+
 
 docker pull microsoft/azure-cli
 
