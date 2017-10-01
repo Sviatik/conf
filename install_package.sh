@@ -77,6 +77,7 @@ cd Flat-Remix/
 sudo mv Flat\ Remix/ /usr/share/icons/
 
 # thems | agter thet you sjould go to "Menu >> Settings >> Appearance >> Style “Choose the desired theme from the list” >> Finally close"
+cd /usr/share/themes
 sudo wget -O /usr/share/themes/OSX-Arc-White.tar.gz https://github.com/LinxGem33/OSX-Arc-White/archive/v1.3.7.tar.gz
 sudo tar zxvf /usr/share/themes/OSX-Arc-White.tar.gz
 rm -rf /usr/share/themes/OSX-Arc-White.tar.gz
