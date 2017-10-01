@@ -122,7 +122,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias grep='grep --color=auto'
 alias du='du -h'
-
+alias git-push='git add . && git commit -m "update" && git push origin master'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
