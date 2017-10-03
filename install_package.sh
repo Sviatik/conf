@@ -4,7 +4,7 @@
 
 USER=sviat
 APT_PACKAGE="vim tree wget git unzip net-tools bash-completion telnet nmap tlp tlp-rdw google-chrome-stable openconnect \
-    sublime-text remmina remmina-plugin-rdp keepassx docker-engine ansible ssh sshfs"
+    sublime-text remmina remmina-plugin-rdp keepassx docker-engine ansible ssh sshfs virtualbox-5.1"
 #skype
 
 
@@ -48,6 +48,10 @@ function install_package {
     sudo apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial main'
     # Ansible repo
     apt-add-repository -y ppa:ansible/ansible
+    # VirtualBox
+    wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+    wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+    echo "deb http://download.virtualbox.org/virtualbox/debian xenial contrib" | sudo tee /etc/apt/sources.list.d/vbox.list
 
 
 
