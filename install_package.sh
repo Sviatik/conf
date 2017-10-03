@@ -4,7 +4,7 @@
 
 USER=sviat
 APT_PACKAGE="vim tree wget git unzip net-tools bash-completion telnet nmap tlp tlp-rdw google-chrome-stable openconnect \
-    sublime-text remmina remmina-plugin-rdp keepassx docker-engine ansible ssh sshfs virtualbox-5.1"
+    sublime-text remmina remmina-plugin-rdp keepassx docker-engine ansible ssh sshfs virtualbox-5.1 htop"
 #skype
 
 
