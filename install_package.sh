@@ -77,7 +77,8 @@ docker pull microsoft/azure-cli
 #Repo for upgreade baterry
 #add-apt-repository ppa:linrunner/tlp
 
-sudo usermod -a -G vboxusers $USER
+sudo usermod -aG vboxusers $USER
+sudo usermod -aG docker $USER
 
 # icons
 cd /opt/
