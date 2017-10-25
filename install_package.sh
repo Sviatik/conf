@@ -70,7 +70,13 @@ check_su
 mkdir -p /home/$USER/.config/xfce4/terminal
 wget https://github.com/sviatik/conf/raw/master/terminalrc -P /home/$USER/.config/xfce4/terminal
 
-
+cd /tmp
+wget https://github.com/jingweno/ccat/releases/download/v1.1.0/linux-amd64-1.1.0.tar.gz
+tar -xvf linux-amd64-1.1.0.tar.gz
+cd linux-amd64-1.1.0
+sudo mv ccat /usr/bin
+cd ..
+rm -rf linux-amd64-1.1.0.tar.gz linux-amd64-1.1.0 
 
 docker pull microsoft/azure-cli
 
