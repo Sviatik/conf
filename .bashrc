@@ -152,6 +152,13 @@ if [ -x /usr/bin/mint-fortune ]; then
      /usr/bin/mint-fortune
 fi
 
+
+# use ccat https://github.com/jingweno/ccat instead cat
+if [ -e "/usr/bin/ccat" ]; then
+    alias cat='ccat'
+fi
+
+
 # corett command
 shopt -s cdspell
 
