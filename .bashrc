@@ -173,4 +173,7 @@ shopt -s histappend
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
 export EDITOR="vim"
-source /opt/az-cli/az.completion
+
+if [ -f ~/.bash_aliases ]; then
+    source /opt/az-cli/az.completion
+fi
