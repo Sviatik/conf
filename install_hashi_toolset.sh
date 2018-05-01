@@ -17,6 +17,7 @@ check_su
 VAULT_URL="https://releases.hashicorp.com/vault/0.10.1/vault_0.10.1_linux_amd64.zip"
 TERRAFORM_URL="https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip"
 PACKER_URL="https://releases.hashicorp.com/packer/1.2.3/packer_1.2.3_linux_amd64.zip"
+TERRAGRUNT_URL="https://github.com/gruntwork-io/terragrunt/releases/download/v0.14.8/terragrunt_linux_amd64"
 
 BIN_PATH="/usr/bin"
 TMP_PATH="/tmp"
@@ -51,4 +52,10 @@ if [ ! -f ${BIN_PATH}/terraform ]; then
     sudo mv ${TMP_PATH}/terraform ${BIN_PATH}
 fi
 
+if [ ! -f ${BIN_PATH}/terragrunt ]; then
+    wget ${TERRAGRUNT_URL}
+	echo ${TERRAGRUNT_URL} | cut -d '/' -f 9
+    sudo mv ${TMP_PATH}/`echo ${TERRAGRUNT_URL} | cut -d '/' -f 9` ${BIN_PATH}/terragrunt
+    chmod +x ${BIN_PATH}/terragrunt
+fi
 
