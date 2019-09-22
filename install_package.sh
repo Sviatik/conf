@@ -52,7 +52,8 @@ function install_package {
     wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
     wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
     echo "deb http://download.virtualbox.org/virtualbox/debian xenial contrib" | sudo tee /etc/apt/sources.list.d/vbox.list
-
+    # fix issue with ctrl-shift switch layout and copy/paste overlap
+    sudo add-apt-repository ppa:nrbrtx/xorg-hotkeys
 
 
     echo "function debian"
